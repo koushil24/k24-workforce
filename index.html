@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#06122B" />
+    <title>K_24 WORKFORCE</title>
+    <meta name="description" content="Show Your Skills. Find Work. Grow Together." />
+    <link rel="icon" type="image/png" href="%BASE_URL%icons/favicon.png" />
+    <link rel="manifest" href="%BASE_URL%manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  </head>
+  <body>
+    <div id="root"><p data-k24-loading style="padding:24px;font-family:sans-serif;color:#06122B">Loading K_24 WORKFORCE…</p></div>
+    <script>
+      function k24show(m){var r=document.getElementById('root');if(r)r.innerHTML='<pre style="white-space:pre-wrap;padding:16px;font:14px monospace;color:#b00020">K_24 error:\n'+String(m).replace(/</g,'&lt;')+'</pre>';}
+      window.addEventListener('error',function(e){k24show(e.message+' '+(e.filename||''))});
+      window.addEventListener('unhandledrejection',function(e){k24show(e.reason)});
+      setTimeout(function(){if(document.querySelector('[data-k24-loading]'))k24show('The app did not start. The script file may not have loaded.')},8000);
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
