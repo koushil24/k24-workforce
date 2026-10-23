@@ -19,8 +19,8 @@ export default function Header() {
   );
   return (
     <header className="sticky top-0 z-40 bg-navy-900 shadow-lg shadow-black/20">
-      <div className="wrap flex h-16 items-center justify-between gap-3">
-        <Link to="/" aria-label="K_24 WORKFORCE"><img src={logoUrl} alt="K_24 WORKFORCE" className="h-12 w-auto" /></Link>
+      <div className="wrap flex h-[72px] items-center justify-between gap-3">
+        <Link to="/" aria-label="K_24 WORKFORCE"><img src={logoUrl} alt="K_24 WORKFORCE" className="h-14 w-auto" /></Link>
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Main">
           {links.map(([to, k]) => <NavLink key={to} to={to} end={to === '/'} className={navCls}>{t(k)}</NavLink>)}
         </nav>

@@ -17,3 +17,5 @@
   .demo { @apply rounded-md border border-gold/60 bg-gold/10 px-2 py-0.5 text-xs font-medium text-amber-700 dark:text-gold; }
   .h2 { @apply text-xl font-bold text-navy-800 dark:text-white sm:text-2xl; }
 }
+
+.hero-grid { background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 32px 32px; }

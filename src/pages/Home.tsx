@@ -1,6 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { MapPin, Search, ShieldCheck, Star, Lock, EyeOff, BadgeCheck, UserPlus, Briefcase, Zap, Droplets, HardHat, Wrench } from 'lucide-react';
+import { MapPin, Search, ShieldCheck, Star, Lock, EyeOff, BadgeCheck, UserPlus, Briefcase } from 'lucide-react';
 import { useT } from '../i18n';
 import { categories, demoPosts, demoWorkers } from '../data/demo';
 import { DemoBanner } from '../components/DemoNote';
@@ -15,8 +15,9 @@ export default function Home() {
   const how = [[UserPlus, 'howW'], [Search, 'howC'], [Briefcase, 'howB']] as const;
   return (
     <>
-      <section className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-700 text-white">
-        <div className="wrap grid items-center gap-8 py-12 lg:grid-cols-2 lg:py-16">
+      <section className="relative overflow-hidden border-b-4 border-gold/70 bg-gradient-to-br from-navy-900 via-navy-800 to-navy-700 text-white">
+        <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+        <div className="wrap relative grid items-center gap-8 py-12 lg:grid-cols-2 lg:py-16">
           <div>
             <h1 className="text-3xl font-extrabold leading-tight sm:text-5xl">
               {t('heroL1')}<br /><span className="text-gold">{t('heroL2')}</span>
@@ -27,13 +28,15 @@ export default function Home() {
               <Link to="/join" className="btn-outline">{t('btnJoin')}</Link>
             </div>
           </div>
-          <div className="hidden grid-cols-2 gap-3 lg:grid" aria-hidden="true">
-            {[Zap, Droplets, HardHat, Wrench].map((I, i) => (
-              <div key={i} className="flex h-28 items-center justify-center rounded-2xl border border-electric/40 bg-navy-900/60 text-electric shadow-[0_0_30px_rgba(31,111,235,0.25)]"><I size={44} /></div>
+          <div className="grid grid-cols-3 gap-3">
+            {categories.filter((c) => ['electrical', 'plumbing', 'construction', 'welding', 'carpentry', 'painting'].includes(c.id)).map(({ id, Icon }) => (
+              <Link key={id} to={`/workers?cat=${id}`} className="flex flex-col items-center gap-2 rounded-2xl border border-electric/40 bg-navy-900/60 px-2 py-5 text-center text-xs font-medium text-slate-100 shadow-[0_0_24px_rgba(31,111,235,0.2)] hover:border-gold">
+                <Icon className="text-gold" size={30} />{t('cat_' + id)}
+              </Link>
             ))}
           </div>
         </div>
-        <div className="wrap pb-8">
+        <div className="wrap relative pb-8">
           <form onSubmit={submit} className="flex flex-col gap-2 rounded-xl bg-white p-3 text-slate-800 shadow-xl sm:flex-row dark:bg-navy-800 dark:text-white">
             <label className="flex items-center gap-2 rounded-lg border border-slate-200 px-3 dark:border-white/15">
               <MapPin size={16} className="text-electric" />
