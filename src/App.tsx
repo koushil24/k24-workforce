@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './layouts/Layout';
+import Splash from './components/Splash';
 import Home from './pages/Home';
 import SetupPage from './pages/SetupPage';
 
@@ -25,6 +26,8 @@ const planned: [string, string, string, number][] = [
 
 export default function App() {
   return (
+    <>
+    <Splash />
     <Suspense fallback={<div className="flex justify-center py-24" role="status" aria-label="Loading"><div className="h-10 w-10 animate-spin rounded-full border-4 border-electric border-t-transparent" /></div>}>
       <Routes>
         <Route element={<Layout />}>
@@ -39,5 +42,6 @@ export default function App() {
         </Route>
       </Routes>
     </Suspense>
+    </>
   );
 }
