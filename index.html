@@ -11,14 +11,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+      <style>
+      .k24-spin{width:36px;height:36px;border:4px solid rgba(255,255,255,.2);border-top-color:#1F6FEB;border-radius:50%;animation:k24s .9s linear infinite}
+      @keyframes k24s{to{transform:rotate(360deg)}}
+    </style>
   </head>
   <body>
-    <div id="root"><p data-k24-loading style="padding:24px;font-family:sans-serif;color:#06122B">Loading K_24 WORKFORCE…</p></div>
+    <div id="root">
+      <div data-k24-loading style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;background:#06122B">
+        <img id="k24-splash-logo" alt="K_24 WORKFORCE" src="%BASE_URL%assets/k24-logo.png" style="width:min(72vw,340px);height:auto" />
+        <div class="k24-spin"></div>
+      </div>
+    </div>
     <script>
+      try{if(localStorage.getItem("k24-lang")==="kn"){var l=document.getElementById("k24-splash-logo");l.src=l.src.replace("k24-logo.png","k24-logo-kn.png")}}catch(e){}
       function k24show(m){var r=document.getElementById('root');if(r)r.innerHTML='<pre style="white-space:pre-wrap;padding:16px;font:14px monospace;color:#b00020">K_24 error:\n'+String(m).replace(/</g,'&lt;')+'</pre>';}
       window.addEventListener('error',function(e){k24show(e.message+' '+(e.filename||''))});
       window.addEventListener('unhandledrejection',function(e){k24show(e.reason)});
-      setTimeout(function(){if(document.querySelector('[data-k24-loading]'))k24show('The app did not start. The script file may not have loaded.')},8000);
+      setTimeout(function(){if(document.querySelector('[data-k24-loading]'))k24show('The app is taking too long to start. Check your internet and refresh.')},30000);
     </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>

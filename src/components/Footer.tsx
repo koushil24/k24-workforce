@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useT } from '../i18n';
-import { logoUrl } from './Header';
+import Logo from './Logo';
 
 const links: [string, string][] = [['/about', 'footAbout'], ['/contact', 'contact'], ['/help', 'help'], ['/privacy', 'privacy'], ['/terms', 'terms'], ['/guidelines', 'guidelines'], ['/booking', 'bookService'], ['/admin', 'admin']];
 
@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="wrap py-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <img src={logoUrl} alt="K_24 WORKFORCE" className="h-20 w-auto" />
+            <Logo className="h-20 w-auto" />
             <p className="mt-2 text-sm text-gold">{t('brandTag')}</p>
           </div>
           <nav className="flex flex-wrap gap-x-5 gap-y-2 text-sm" aria-label="Footer">

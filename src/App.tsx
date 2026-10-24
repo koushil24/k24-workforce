@@ -25,7 +25,7 @@ const planned: [string, string, string, number][] = [
 
 export default function App() {
   return (
-    <Suspense fallback={<p className="wrap py-10 text-sm">Loading…</p>}>
+    <Suspense fallback={<div className="flex justify-center py-24" role="status" aria-label="Loading"><div className="h-10 w-10 animate-spin rounded-full border-4 border-electric border-t-transparent" /></div>}>
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />

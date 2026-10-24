@@ -4,7 +4,7 @@ import { Menu, Moon, Sun, X } from 'lucide-react';
 import { useT } from '../i18n';
 import { useTheme } from '../lib/theme';
 
-export const logoUrl = `${import.meta.env.BASE_URL}assets/k24-logo.png`;
+import Logo from './Logo';
 const links: [string, string][] = [['/', 'home'], ['/workers', 'findWorkers'], ['/feed', 'workFeed'], ['/jobs', 'findJobs'], ['/business', 'forBusinesses']];
 
 export default function Header() {
@@ -20,7 +20,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-navy-900 shadow-lg shadow-black/20">
       <div className="wrap flex h-[72px] items-center justify-between gap-3">
-        <Link to="/" aria-label="K_24 WORKFORCE"><img src={logoUrl} alt="K_24 WORKFORCE" className="h-14 w-auto" /></Link>
+        <Link to="/" aria-label="K_24 WORKFORCE"><Logo className="h-14 w-auto" /></Link>
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Main">
           {links.map(([to, k]) => <NavLink key={to} to={to} end={to === '/'} className={navCls}>{t(k)}</NavLink>)}
         </nav>
